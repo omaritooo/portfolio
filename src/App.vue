@@ -1,23 +1,38 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+<template class="">
+  <div class="overflow-x-hidden bg-custom-offwhite">
+    <div :class="isDark ? '' : 'dark'">
+      <Navbar />
+      <Header v-model="isDark" />
+      <SectionOne />
+      <SectionTwo />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Header from "./components/Header.vue";
+import SectionOne from "./components/Section1.vue";
+import SectionTwo from "./components/Section2.vue";
+import Navbar from "./components/Navbar.vue";
 export default {
   name: "App",
+
+  data() {
+    return {
+      isDark: true,
+    };
+  },
   components: {
-    HelloWorld,
+    Header,
+    SectionOne,
+    SectionTwo,
+    Navbar,
   },
 };
 </script>
 
 <style>
-#app {
+.app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
