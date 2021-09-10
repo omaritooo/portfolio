@@ -18,6 +18,7 @@
       >
         <a
           class="z-0 px-4 py-2 mt-2 italic transition duration-300 ease-in bg-transparent border-2 border-purple-500  rounded-3xl text-md dark-mode:bg-transparent dark-mode:hover:bg-purple-300 dark-mode:focus:bg-gray-300 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-100 focus:text-purple-900 hover:bg-purple-500 focus:bg-purple-500 focus:outline-none focus:shadow-outline"
+          v-scroll-to="'#mailme'"
           href="#"
           >Say Hello</a
         >
@@ -40,9 +41,11 @@
 <script>
 export default {
   methods: {
-    toggle() {
-      this.$colorMode.preference =
-        this.$colorMode.value == "light" ? "dark" : "light";
+    goto(refName) {
+      var element = this.$refs[refName];
+      var top = element.offsetTop;
+
+      window.scrollTo(0, top);
     },
   },
 };

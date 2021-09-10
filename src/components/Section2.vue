@@ -1,46 +1,148 @@
 <template>
-  <div class="px-32" id="section">
+  <div class="px-10 md:px-32 skillssection" id="section">
     <div
       class="mt-10 mb-20 text-center uppercase text-purp-light drop-shadow-lg"
     >
-      <h1 id="skills" class="text-5xl">
+      <h1 id="skills" class="justify-center text-xl text-center md:text-5xl">
         Skills and proficiencies <span id="spn" class="">★</span>
       </h1>
     </div>
-    <div class="flex flex-col justify-around">
-      <div class="container flex flex-row bg-green-700 w-max">
-        <div
-          class=""
-          v-show="image.skill === 'S'"
-          v-for="image in images"
-          :key="image.name"
-        >
-          <img
-            v-tooltip="image.tag"
-            v-bind:class="
-              image.diff === 'hard' ? 'border-green-400' : 'border-red-400'
-            "
-            class="p-2 mx-auto mt-10 mb-10 transition duration-500 ease-in-out transform border-2 rounded-full  hover:-translate-y-1 hover:shadow-xl hover:scale-110 hover:bg-transparent"
-            :src="require(`@/assets/${image.name}.svg`)"
-            alt=""
-          />
+    <div class="">
+      <div class="flex flex-col md:flex-row md:justify-around">
+        <div class="flex flex-col items-center justify-around">
+          <h2
+            id="frontend"
+            class="px-2 my-6 text-lg text-gray-600 uppercase md:text-2xl"
+          >
+            Front end
+          </h2>
+
+          <div
+            class="flex justify-center p-6 bg-yellow-400 border-8 border-yellow-600 rounded-full  md:p-10"
+          >
+            <img class="shadow-xl" src="../assets/browser.svg" alt="" />
+          </div>
+          <div
+            class="flex justify-center  md:px-10 md:flex-row md:w-max gap-x-2 md:gap-x-4"
+          >
+            <div
+              class=""
+              v-show="image.type === 'front'"
+              v-for="image in images"
+              :key="image.name"
+            >
+              <div v-if="image.skill === 'S'">
+                <img
+                  v-tooltip="image.tag"
+                  class="p-2 mx-auto mt-10 mb-10 transition duration-500 ease-in-out transform border-2 border-green-400 rounded-full  hover:-translate-y-1 hover:shadow-xl hover:scale-110 hover:bg-transparent"
+                  :src="require(`@/assets/${image.name}.svg`)"
+                  alt=""
+                />
+              </div>
+              <div v-if="image.skill === 'A'">
+                <img
+                  v-tooltip="image.tag"
+                  class="p-2 mx-auto mt-10 mb-10 transition duration-500 ease-in-out transform border-2 border-yellow-500 rounded-full  hover:-translate-y-1 hover:shadow-xl hover:scale-110 hover:bg-transparent"
+                  :src="require(`@/assets/${image.name}.svg`)"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-around">
+          <h2 id="backend" class="px-2 my-6 text-2xl text-gray-600 uppercase">
+            Backend
+          </h2>
+
+          <div
+            class="flex justify-center p-10 bg-red-400 border-8 border-red-600 rounded-full "
+          >
+            <div></div>
+            <img class="shadow-xl" src="../assets/server.svg" alt="" />
+          </div>
+          <div
+            class="flex justify-center  md:px-10 md:flex-row md:w-max gap-x-2 md:gap-x-4"
+          >
+            <div
+              class=""
+              v-show="image.type === 'back'"
+              v-for="image in images"
+              :key="image.name"
+            >
+              <div v-if="image.skill === 'S'">
+                <img
+                  v-tooltip="image.tag"
+                  class="p-2 mx-auto mt-10 mb-10 transition duration-500 ease-in-out transform border-2 border-green-400 rounded-full  hover:-translate-y-1 hover:shadow-xl hover:scale-110 hover:bg-transparent"
+                  :src="require(`@/assets/${image.name}.svg`)"
+                  alt=""
+                />
+              </div>
+              <div v-if="image.skill === 'A'">
+                <img
+                  v-tooltip="image.tag"
+                  class="p-2 mx-auto mt-10 mb-10 transition duration-500 ease-in-out transform border-2 border-yellow-500 rounded-full  hover:-translate-y-1 hover:shadow-xl hover:scale-110 hover:bg-transparent"
+                  :src="require(`@/assets/${image.name}.svg`)"
+                  alt=""
+                />
+              </div>
+              <div v-if="image.skill === 'B'">
+                <img
+                  v-tooltip="image.tag"
+                  class="p-2 mx-auto mt-10 mb-10 transition duration-500 ease-in-out transform border-2 border-yellow-300 rounded-full  hover:-translate-y-1 hover:shadow-xl hover:scale-110 hover:bg-transparent"
+                  :src="require(`@/assets/${image.name}.svg`)"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div
-        class=""
-        v-show="image.skill === 'A'"
-        v-for="image in images"
-        :key="image.name"
-      >
-        <img
-          v-tooltip="image.tag"
-          v-bind:class="
-            image.diff === 'hard' ? 'border-green-400' : 'border-red-400'
-          "
-          class="p-2 mx-auto mt-10 mb-20 transition duration-500 ease-in-out transform border-2 rounded-full  hover:-translate-y-1 hover:shadow-xl hover:scale-110 hover:bg-transparent"
-          :src="require(`@/assets/${image.name}.svg`)"
-          alt=""
-        />
+      <div class="flex flex-col items-center justify-center">
+        <h2 id="misc" class="px-2 my-6 text-2xl text-gray-600 uppercase">
+          Misc
+        </h2>
+
+        <div
+          class="flex justify-center p-10 bg-blue-400 border-8 border-blue-600 rounded-full shadow-inner "
+        >
+          <img class="" src="../assets/misco.svg" alt="" />
+        </div>
+        <div
+          class="flex justify-center  md:px-10 md:flex-row md:w-max gap-x-2 md:gap-x-4"
+        >
+          <div
+            class=""
+            v-show="image.type === 'misc'"
+            v-for="image in images"
+            :key="image.name"
+          >
+            <div v-if="image.skill === 'S'">
+              <img
+                v-tooltip="image.tag"
+                class="p-2 mx-auto mt-10 mb-10 transition duration-500 ease-in-out transform border-2 border-green-400 rounded-full  hover:-translate-y-1 hover:shadow-xl hover:scale-110 hover:bg-transparent"
+                :src="require(`@/assets/${image.name}.svg`)"
+                alt=""
+              />
+            </div>
+            <div v-if="image.skill === 'A'">
+              <img
+                v-tooltip="image.tag"
+                class="p-2 mx-auto mt-10 mb-10 transition duration-500 ease-in-out transform border-2 border-yellow-500 rounded-full  hover:-translate-y-1 hover:shadow-xl hover:scale-110 hover:bg-transparent"
+                :src="require(`@/assets/${image.name}.svg`)"
+                alt=""
+              />
+            </div>
+            <div v-if="image.skill === 'B'">
+              <img
+                v-tooltip="image.tag"
+                class="p-2 mx-auto mt-10 mb-10 transition duration-500 ease-in-out transform border-2 border-yellow-300 rounded-full  hover:-translate-y-1 hover:shadow-xl hover:scale-110 hover:bg-transparent"
+                :src="require(`@/assets/${image.name}.svg`)"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -58,60 +160,78 @@ export default {
           tag: "VueJS",
           skill: "S",
           diff: "hard",
+          type: "front",
         },
         {
           name: "tailwindcss",
           tag: "TailwindCSS",
           skill: "S",
+          type: "front",
         },
         {
           name: "css3",
           tag: "CSS3",
           skill: "S",
+          type: "front",
         },
         {
           name: "html5",
           tag: "HTML5",
           skill: "S",
+          type: "front",
         },
         {
           name: "react",
           tag: "ReactJs/React Native",
           skill: "A",
+          type: "front",
         },
         {
           name: "nodejs-seeklogo.com",
           tag: "NodeJS",
           skill: "A",
+          type: "back",
         },
 
-        { name: "laravel", tag: "Laravel", skill: "B" },
+        { name: "laravel", tag: "Laravel", skill: "B", type: "back" },
         {
           name: "mongodb-icon-1",
           tag: "MongoDB",
           skill: "B",
+          type: "back",
         },
-        { name: "database", tag: "SQL", skill: "S" },
+        { name: "database", tag: "SQL", skill: "S", type: "back" },
 
         {
           name: "python",
           tag: "Python",
           skill: "A",
+          type: "misc",
         },
         {
           name: "java",
           tag: "Java",
+          type: "misc",
+          skill: "A",
         },
 
         {
           name: "cdnlogo_c",
           tag: "C#",
           skill: "A",
+          type: "misc",
         },
         {
           name: "php",
           tag: "PHP",
           skill: "B",
+          type: "back",
+        },
+        {
+          name: "git",
+          tag: "Git",
+          skill: "S",
+          type: "misc",
         },
       ],
     };
@@ -221,10 +341,72 @@ h1 > #spn {
   flex: 0 0 40%;
   margin: 20px;
 }
+#frontend {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 #f7c035, 0 1px 0 #f7c035;
+  transition: box-shadow 0.3s;
+  overflow: hidden;
+}
 
+#frontend:hover {
+  box-shadow: inset 0 -30px 0 #f7c035;
+  color: white;
+}
+
+#backend {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 #f57173, 0 1px 0 #f57173;
+  transition: box-shadow 0.3s;
+  overflow: hidden;
+}
+
+#backend:hover {
+  box-shadow: inset 0 -30px 0 #f57173;
+  color: white;
+}
+
+#misc {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 #6ba3f8, 0 1px 0 #6ba3f8;
+  transition: box-shadow 0.3s;
+  overflow: hidden;
+}
+
+#misc:hover {
+  box-shadow: inset 0 -30px 0 #6ba3f8;
+  color: white;
+}
 #skills {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+}
+
+.skillssection {
+  background-image: url("../assets/pixel.svg");
+  background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  .skillssection {
+    background-image: url("../assets/pixel.svg");
+    background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: cover;
+
+    opacity: 1;
+  }
 }
 </style>
 
